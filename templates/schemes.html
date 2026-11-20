@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Schemes | Bharat Sahayak AI</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #263445;
+        }
+
+        nav {
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px #ddd;
+        }
+
+        nav h2 {
+            color: #174b83;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #174b83;
+            font-weight: bold;
+        }
+
+        .header {
+            text-align: center;
+            padding: 55px 20px;
+            background: linear-gradient(120deg, #e7f2ff, #fff4e6);
+        }
+
+        .header h1 {
+            color: #174b83;
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            color: #555;
+            font-size: 17px;
+        }
+
+        .search-box {
+            text-align: center;
+            margin: 35px 15px;
+        }
+
+        .search-box input {
+            width: 60%;
+            max-width: 550px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .categories {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .categories button {
+            padding: 11px 20px;
+            margin: 6px;
+            border: none;
+            border-radius: 6px;
+            background: #174b83;
+            color: white;
+            cursor: pointer;
+        }
+
+        .categories button:hover {
+            background: #e67e22;
+        }
+
+        .schemes {
+            padding: 10px 8% 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #ddd;
+        }
+
+        .card h3 {
+            color: #174b83;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .card button {
+            padding: 10px 18px;
+            background: #174b83;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .details {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background: #eef5ff;
+            border-radius: 6px;
+        }
+
+        #noResults {
+            display: none;
+            text-align: center;
+            grid-column: 1 / -1;
+            color: #777;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #174b83;
+            color: white;
+        }
+
+        @media(max-width: 600px) {
+            .search-box input {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>Bharat Sahayak AI</h2>
+        <a href="/">Home</a>
+    </nav>
+
+    <section class="header">
+        <h1>Explore Government Schemes</h1>
+        <p>Find schemes that match your needs and discover available benefits.</p>
+    </section>
+
+    <div class="search-box">
+        <input type="text" id="search"
+        placeholder="Search schemes by name..."
+        onkeyup="searchSchemes()">
+    </div>
+
+    <div class="categories">
+        <button onclick="filterSchemes('All')">All</button>
+        <button onclick="filterSchemes('Education')">Education</button>
+        <button onclick="filterSchemes('Agriculture')">Agriculture</button>
+        <button onclick="filterSchemes('Health')">Health</button>
+        <button onclick="filterSchemes('Employment')">Employment</button>
+    </div>
+
+    <section class="schemes" id="schemeList">
+
+        <div class="card" data-category="Education">
+            <h3>Jagananna Vidya Deevena</h3>
+            <p>Category: Education</p>
+            <p>Provides eligible students with financial assistance for college fees.</p>
+            <button onclick="showDetails(this)">View Details</button>
+            <div class="details">
+                <p><b>Eligibility:</b> Subject to applicable income and other government criteria.</p>
+                <p><b>Benefits:</b> Eligible students receive fee reimbursement.</p>
+                <p><b>Note:</b> Verify current scheme status through the official government portal.</p>
+            </div>
+        </div>
+
+        <div class="card" data-category="Agriculture">
+            <h3>PM-KISAN</h3>
+            <p>Category: Agriculture</p>
+            <p>Provides income support to eligible farmer families.</p>
+            <button onclick="showDetails(this)">View Details</button>
+            <div class="details">
+                <p><b>Eligibility:</b> Eligible landholding farmer families, subject to exclusions.</p>
+                <p><b>Benefits:</b> ₹6,000 per year in three instalments.</p>
+                <p><b>Official Website:</b>
+                    <a href="https://pmkisan.gov.in/" target="_blank">Visit PM-KISAN</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="card" data-category="Health">
+            <h3>Ayushman Bharat PM-JAY</h3>
+            <p>Category: Health</p>
+            <p>Provides health coverage to eligible families.</p>
+            <button onclick="showDetails(this)">View Details</button>
+            <div class="details">
+                <p><b>Eligibility:</b> Based on applicable beneficiary criteria.</p>
+                <p><b>Benefits:</b> Health cover up to ₹5 lakh per eligible family per year.</p>
+                <p><b>Official Website:</b>
+                    <a href="https://pmjay.gov.in/" target="_blank">Visit PM-JAY</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="card" data-category="Employment">
+            <h3>PMKVY</h3>
+            <p>Category: Employment</p>
+            <p>Supports skill development and vocational training.</p>
+            <button onclick="showDetails(this)">View Details</button>
+            <div class="details">
+                <p><b>Eligibility:</b> Depends on the selected training programme.</p>
+                <p><b>Benefits:</b> Skill training and certification opportunities.</p>
+                <p><b>Official Website:</b>
+                    <a href="https://www.msde.gov.in/" target="_blank">Visit MSDE</a>
+                </p>
+            </div>
+        </div>
+
+        <p id="noResults">No matching schemes found.</p>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Bharat Sahayak AI | Government Services Made Simple</p>
+    </footer>
+
+    <script>
+
+        function searchSchemes() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let cards = document.querySelectorAll(".card");
+
+            let count = 0;
+
+            cards.forEach(card => {
+                let name = card.querySelector("h3").innerText.toLowerCase();
+
+                if (name.includes(input)) {
+                    card.style.display = "block";
+                    count++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            document.getElementById("noResults").style.display =
+                count === 0 ? "block" : "none";
+        }
+
+        function filterSchemes(category) {
+            let cards = document.querySelectorAll(".card");
+            let count = 0;
+
+            cards.forEach(card => {
+                if (category === "All" ||
+                    card.dataset.category === category) {
+                    card.style.display = "block";
+                    count++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            document.getElementById("search").value = "";
+
+            document.getElementById("noResults").style.display =
+                count === 0 ? "block" : "none";
+        }
+
+        function showDetails(button) {
+            let details = button.nextElementSibling;
+
+            if (details.style.display === "block") {
+                details.style.display = "none";
+                button.innerText = "View Details";
+            } else {
+                details.style.display = "block";
+                button.innerText = "Hide Details";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
