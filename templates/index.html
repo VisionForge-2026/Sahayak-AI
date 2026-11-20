@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahayak AI</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f8fc;
+            color: #263445;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #174b83;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #e67e22;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(120deg, #e7f2ff, #fff4e6);
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            color: #174b83;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 30px;
+            margin-bottom: 35px;
+            color: #174b83;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #174b83;
+            margin-bottom: 15px;
+            font-size: 23px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            min-height: 55px;
+        }
+
+        /* Card Buttons */
+        .card-button {
+            display: inline-block;
+            padding: 14px 20px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 6px;
+            background: #174b83;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .card-button:hover {
+            background: #e67e22;
+        }
+
+        /* Footer */
+        footer {
+            background: #174b83;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 8px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            .features {
+                padding: 40px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Sahayak AI</div>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <h1>Welcome to Sahayak AI</h1>
+
+        <h2>Your Voice. Your Language.</h2>
+
+        <p>
+            Discover Government Schemes Easily.
+            Get Information in Your Own Language.
+        </p>
+
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+
+        <h2>What We Offer</h2>
+
+        <div class="cards">
+
+            <!-- Scheme Search -->
+            <div class="card">
+                <h3>Scheme Search</h3>
+
+                <p>
+                    Find government schemes based on your needs.
+                </p>
+
+                <a href="/schemes" class="card-button">
+                    Explore Schemes
+                </a>
+            </div>
+
+            <!-- Eligibility Checker -->
+            <div class="card">
+                <h3>Eligibility Checker</h3>
+
+                <p>
+                    Discover schemes that match your basic details.
+                </p>
+
+                <a href="/eligibility" class="card-button">
+                    Check Eligibility
+                </a>
+            </div>
+
+            <!-- AI Assistant -->
+            <div class="card">
+                <h3>AI Assistant</h3>
+
+                <p>
+                    Get answers to your government scheme questions.
+                </p>
+
+                <a href="/chatbot" class="card-button">
+                    Open AI Assistant
+                </a>
+            </div>
+
+            <!-- Application Guide -->
+            <div class="card">
+                <h3>Application Guide</h3>
+
+                <p>
+                    Understand required documents and application procedures.
+                </p>
+
+                <a href="/guidance" class="card-button">
+                    View Application Guide
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about">
+        <p>© 2026 Sahayak AI | Government Services Made Simple</p>
+    </footer>
+
+</body>
+</html>
